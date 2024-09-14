@@ -1,0 +1,129 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  width: 100%;
+  background-color: #ccc;
+}
+
+#itemList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 150px;
+}
+
+.item-list {
+  margin-bottom: 20px;
+}
+
+.item-index,
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.item-name,
+.item-name-index {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.total-points {
+  text-align: right;
+  font-size: 18px;
+  color: #4a90e2;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background-color: #ff5733 !important;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="number"] {
+    margin-top: 10px;
+  }
+
+  .total-points {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Items</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="x-icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="form-content">
+      <h1>Manage Items</h1>
+
+      <!-- Form to Add a New Item -->
+      <h2>Add a New Item</h2>
+      <form id="itemForm">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="price">Item Price:</label>
+        <input
+          type="number"
+          id="price"
+          name="price"
+          step="0.01"
+          required
+        /><br /><br />
+
+        <button type="submit">Add Item</button>
+      </form>
+    </div>
+
+    <!-- Item List -->
+    <div class="list-content">
+      <h2>Item List</h2>
+      <div id="itemListIndex" class="item-list-index"></div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
