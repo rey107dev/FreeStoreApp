@@ -1,15 +1,11 @@
-install dependencies
+##install dependencies
+npm install
 
-'''npm install'''
+##run applicaton
+npm run start
 
-run applicaton
+##access main page
+/
 
-'''npm run start'''
-
-access main page
-
-'''/'''
-
-access item page
-
-'''/free-store/items/'''
+##access item page
+/free-store/items/
