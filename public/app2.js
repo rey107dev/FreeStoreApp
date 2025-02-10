@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Fetch items from the server
   async function fetchItems() {
     try {
-      const response = await fetch("process.env.SERVER_URL/items");
+      const response = await fetch(`${process.env.SERVER_URL}/items`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

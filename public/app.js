@@ -1,7 +1,7 @@
 // Fetch items from the server and display them
 async function fetchItems() {
   try {
-    const response = await fetch("process.env.SERVER_URL/items");
+    const response = await fetch(`${process.env.SERVER_URL}/items`);
     const items = await response.json();
     displayItems(items);
   } catch (error) {
@@ -65,7 +65,7 @@ function createDeleteButton(item) {
 async function deleteItem(itemId) {
   try {
     const response = await fetch(
-      `process.env.SERVER_URL/delete-item/${itemId}`,
+      `${process.env.SERVER_URL}/delete-item/${itemId}`,
       {
         method: "DELETE",
         headers: {
@@ -103,7 +103,7 @@ document
     const name = document.getElementById("name").value;
     const price = document.getElementById("price").value;
 
-    const response = await fetch("process.env.SERVER_URL/add-item", {
+    const response = await fetch(`${process.env.SERVER_URL}/add-item`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -127,7 +127,7 @@ async function editItem(item) {
 
   if (newName !== null && newPrice !== null) {
     const response = await fetch(
-      `process.env.SERVER_URL/edit-item/${item.id}`,
+      `${process.env.SERVER_URL}/edit-item/${item.id}`,
       {
         method: "PUT",
         headers: {
