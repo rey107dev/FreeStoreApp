@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const itemList = document.getElementById("itemList");
   const totalPointsElement = document.getElementById("totalPoints");
+  const api = "https://freestoreapp-production.up.railway.app";
 
   // Fetch items from the server
   async function fetchItems() {
     try {
-      const response = await fetch(`${process.env.SERVER_URL}/items`);
+      const response = await fetch(`${api}/items`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
