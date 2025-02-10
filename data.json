@@ -3,5 +3,10 @@
     "id": "c53ca922-3c49-4c31-b340-f3b943c49d35",
     "name": "Noodles",
     "price": 10
+  },
+  {
+    "id": "d128bffd-71ee-4297-8f96-5a4c8f697a44",
+    "name": "Bigas",
+    "price": 30
   }
 ]
