@@ -1,13 +1,10 @@
 {
-  "name": "FreeStoreApp",
+  "name": "free-store-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "build": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +14,6 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "nodemon": "^3.1.4"
-  },
-  "homepage": "https://rey107dev.github.io/FreeStoreApp"
+  }
 }
