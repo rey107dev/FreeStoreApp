@@ -1,15 +1,15 @@
 const express = require("express");
 const fs = require("fs");
+const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const app = express();
-const PORT = 3000;
-
-// Serve static files from the "public" directory
+const PORT = process.env.PORT || 3000;
 
 // Path to the JSON file
 const filePath = path.join(__dirname, "data.json");
 
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -39,7 +39,6 @@ app.get("/free-store/items", (req, res) => {
 // Serve the items (GET request)
 app.get("/items", (req, res) => {
   const items = readItems();
-  console.log(items);
   res.json(items);
 });
 
@@ -50,20 +49,14 @@ app.post("/add-item", (req, res) => {
     return res.status(400).send("Name and price are required.");
   }
 
-  // Read the existing items
   const items = readItems();
-
-  // Create a new item with a UUID
   const newItem = {
     id: uuidv4(),
     name,
     price: parseFloat(price),
   };
 
-  // Add the new item to the list
   items.push(newItem);
-
-  // Write the updated list back to the JSON file
   writeItems(items);
 
   res.status(201).send("Item added successfully.");
@@ -74,42 +67,32 @@ app.put("/edit-item/:id", (req, res) => {
   const { id } = req.params;
   const { name, price } = req.body;
 
-  // Read the existing items
   let items = readItems();
-
-  // Find the item by ID
   const itemIndex = items.findIndex((item) => item.id === id);
 
   if (itemIndex === -1) {
     return res.status(404).send("Item not found.");
   }
 
-  // Update the item's properties
   if (name) items[itemIndex].name = name;
   if (price) items[itemIndex].price = parseFloat(price);
 
-  // Write the updated list back to the JSON file
   writeItems(items);
 
   res.send("Item updated successfully.");
 });
 
-
 // Delete an item (DELETE request)
 app.delete("/delete-item/:id", (req, res) => {
   const { id } = req.params;
 
-  // Read the existing items
   let items = readItems();
-
-  // Filter out the item with the given ID
   const newItems = items.filter((item) => item.id !== id);
 
   if (items.length === newItems.length) {
     return res.status(404).send("Item not found.");
   }
 
-  // Write the updated list back to the JSON file
   writeItems(newItems);
 
   res.send("Item deleted successfully.");
